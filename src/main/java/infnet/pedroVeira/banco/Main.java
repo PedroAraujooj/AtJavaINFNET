@@ -15,13 +15,13 @@ public class Main {
         Spark.post("/cliente/", ClienteController.cadastrarCliente );
         Spark.post("/cliente/:cpf", ClienteController.cadastrarClienteCpf );
 
-
         Spark.get("/conta-corrente/:num", ContaCorrenteController.getConta );
         Spark.delete("/conta-corrente/:num", ContaCorrenteController.deleteConta );
         Spark.post("/conta-corrente/:num/:cpf", ContaCorrenteController.cadastrarConta );
+        Spark.put("/conta-corrente/:num1/:num2/transferir", ContaCorrenteController.transferir );
+        Spark.put("/conta-corrente/:num/depositar", ContaCorrenteController.depositar );
+        Spark.put("/conta-corrente/:num/sacar", ContaCorrenteController.sacar );
 
         Spark.get("endereco/:cep", EnderecoController.getEnderecoByCep);
-
-
     }
 }

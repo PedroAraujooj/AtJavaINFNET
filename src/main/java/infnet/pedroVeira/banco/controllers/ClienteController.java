@@ -8,21 +8,18 @@ import infnet.pedroVeira.banco.services.EnderecoService;
 import spark.Route;
 
 public class ClienteController {
-
     public static Route getCliente = ((request, response) -> {
         String cpf = request.params("cpf");
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(ClienteService.getCliente(cpf));
     }
     );
-
     public static Route deleteCliente = ((request, response) -> {
         String cpf = request.params("cpf");
         ClienteService.deleteCliente(cpf);
         return "Cliente com o CPF " + cpf + " foi deletado.";
     }
     );
-
     public static Route cadastrarCliente = ((request, response) -> {
         ObjectMapper mapper = new ObjectMapper();
         ClienteDTO clienteDTO = mapper.readValue(request.body(), ClienteDTO.class);

@@ -11,6 +11,17 @@ public class Conta {
         this.numeroConta = numeroConta;
     }
 
+    public void sacar(Double valor){
+        if(this.getSaldo() >= valor && valor > 0){
+            setSaldo(getSaldo() - valor);
+        }
+    }
+    public void depositar(Double valor){
+        if(valor > 0){
+            setSaldo(getSaldo() + valor);
+        }
+    }
+
     public Conta() {
     }
 
